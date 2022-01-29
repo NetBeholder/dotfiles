@@ -1,0 +1,7 @@
+[user]
+	email = netbeholder@gmail.com
+	name = Sergey Salakhov
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
