@@ -1,1 +1,1 @@
-# dotfiles from Ubuntu Server 21.10
+# dotfiles from Debian 11
