@@ -12,7 +12,7 @@ $presco xbps-install -Suy open-vm-tools
 $presco cp /etc/vmware-tools/tools.conf.example /etc/vmware-tools/tools.conf
 
 #autochange screen resolution
-$presco sed '/\[resolutionKMS\]/a enable=true' /etc/vmware-tools/tools.conf
+$presco sed -i '/\[resolutionKMS\]/a enable=true' /etc/vmware-tools/tools.conf
 
 $presco ln -s /etc/sv/vmtoolsd/ /var/service
 
