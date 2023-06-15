@@ -1,1 +1,6 @@
-~/.screenlayout/laptop.sh
+export PATH="$HOME/.local/bin:$PATH"
+~/.screenlayout/laptop.sh &
+feh --bg-scale --randomize ~/.local/share/backgrounds/* &
+pipewire &
+wireplumber &
+pipewire-pulse &

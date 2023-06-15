@@ -24,10 +24,11 @@ call plug#begin()
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'                       " Lightline statusbar
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
+Plug 'lilydjwg/colorizer'
 call plug#end()
 
 "Some tandard basic settings:
@@ -49,7 +50,7 @@ set number relativenumber
 "colorscheme catppuccin
 colorscheme gruvbox 
 let g:rehash256 = 1
-set background=dark
+"set background=dark
 "let g:molokai_original = 1
 
 set cursorline
