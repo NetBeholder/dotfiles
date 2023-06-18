@@ -1,7 +1,6 @@
 #!/bin/bash
-
+# run script from voidlinux-install-scripts folder!
 # use doas if installed
-
 # Set Privilege-Escalation-Command OR presco OR pr-es-co
 
 [ -x "$(command -v doas)" ] && [ -e /etc/doas.conf ] && presco="doas"
@@ -26,8 +25,15 @@ permit setenv { XAUTHORITY LANG LC_ALL } $UserName
 permit nopass $UserName as root cmd xbps-install
 permit nopass $UserName as root cmd updatedb
 permit nopass $UserName as root cmd nano
+permit nopass $UserName as root cmd ls
+permit nopass $UserName as root cmd cp
 EOF
 
 #set user's pass finally
 echo "Set password for new user:"
 passwd $UserName
+
+#cloning dotfiles repo to new location
+mkdir /home/$UserName/.dotfiles
+git clone ../ /home/$UserName/.dotfiles
+chown -R $UserName:$UserName /home/$UserName/.dotfiles
