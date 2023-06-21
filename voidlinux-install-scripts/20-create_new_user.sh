@@ -1,5 +1,9 @@
 #!/bin/bash
-# run script from voidlinux-install-scripts folder!
+# 
+#
+
+set -euo pipefail
+
 # use doas if installed
 # Set Privilege-Escalation-Command OR presco OR pr-es-co
 
@@ -9,12 +13,12 @@
 
 UserName=$1
 UserNameStrLength=${#UserName}
-echo "Name Lenght is: ${UserNameStrLength}"
+echo "Name length is: ${UserNameStrLength}"
 
 if [[ ${UserNameStrLength} == 0 ]] 
 then
-    UserName="user"
-    echo "No name was input"
+    UserName="user" #some fallback name
+    #echo "No name was input"
 fi
 #echo "Name of user: ${UserName}"
 UserPassword="P@ssw0rd"
