@@ -6,14 +6,24 @@
 [ -x "$(command -v doas)" ] && [ -e /etc/doas.conf ] && presco="doas"
 [ -x "$(command -v sudo)" ] && presco="sudo"
 
-UserName="sergey"
+
+UserName=$1
+UserNameStrLength=${#UserName}
+echo "Name Lenght is: ${UserNameStrLength}"
+
+if [[ ${UserNameStrLength} == 0 ]] 
+then
+    UserName="user"
+    echo "No name was input"
+fi
+#echo "Name of user: ${UserName}"
 UserPassword="P@ssw0rd"
 
 #some xdg's software and doas
 $presco xbps-install -Suy xdg-utils xdg-user-dirs opendoas
 
 #create user with temporary password
-$presco useradd -s /bin/bash -m -G wheel,users,video,audio,lp,storage,scanner,input,socklog $UserName -p $UserPassword
+$presco useradd -s /bin/bash -m -G wheel,users,video,audio,lp,storage,scanner,input,socklog $UserName -p $UserPassword --badnames
 
 #create xdg compliant dirs in ~
 sudo -i -u $UserName xdg-user-dirs-update
@@ -35,5 +45,7 @@ passwd $UserName
 
 #cloning dotfiles repo to new location
 mkdir /home/$UserName/.dotfiles
-git clone ../ /home/$UserName/.dotfiles
+
+_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd "$(dirname "$(readlink "${BASH_SOURCE[0]}" || echo ".")")" && pwd)"
+git clone "${_path}/.." /home/$UserName/.dotfiles
 chown -R $UserName:$UserName /home/$UserName/.dotfiles
