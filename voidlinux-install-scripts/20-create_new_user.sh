@@ -30,7 +30,7 @@ sudo -i -u $UserName xdg-user-dirs-update
 
 #simple doas.conf for created user
 $presco cat <<EOF > /etc/doas.conf
-permit persist sergey as root
+permit persist $UserName as root
 permit setenv { XAUTHORITY LANG LC_ALL } $UserName
 permit nopass $UserName as root cmd xbps-install
 permit nopass $UserName as root cmd updatedb
