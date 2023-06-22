@@ -9,7 +9,6 @@ set -euo pipefail
 [ -x "$(command -v doas)" ] && [ -e /etc/doas.conf ] && presco="doas"
 [ -x "$(command -v sudo)" ] && presco="sudo"
 
-$presco xbps-install -Suy stow nano vim alacritty #stow and software
 
 # $HOME folder structure:
 echo -e "
@@ -42,4 +41,6 @@ pwd
 #mv ~/.bash_profile ~/.local/share/.old-stow-files/
 #mv ~/.bashrc ~/.local/share/.old-stow-files/
 
-stow -t ~/ bash --dotfiles --adopt
+#stow -t ~/ bash --dotfiles --adopt
+stow -t ~/ * --dotfiles --adopt
+$presco xbps-install -Suy stow nano vim alacritty #stow and software
