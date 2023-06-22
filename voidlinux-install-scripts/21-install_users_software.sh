@@ -42,12 +42,12 @@ pwd
 
 #stow -t ~/ bash --dotfiles --adopt
 
-#git
+##git
 [ -f $HOME/.gitconfig ] && { mv $HOME/.gitconfig $HOME/.local/share/.old-stow-files; } || echo ".gitconfig does not exist."
-stow -t ~/ git --dotfiles #--adopt
+#stow -t ~/ git --dotfiles #--adopt
 
 
 stow -t ~/ * --dotfiles --adopt
-$presco xbps-install -Suy stow nano vim alacritty #stow and software
+$presco xbps-install -Suy stow nano neovim alacritty #stow and software
 
 source $HOME/.bashrc
