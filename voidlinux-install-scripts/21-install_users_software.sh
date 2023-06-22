@@ -35,7 +35,7 @@ pwd
 
 [ -f $HOME/.bash_aliases ] && { mv $HOME/.bash_aliases $HOME/.local/share/.old-stow-files; } || echo "bash_alias does not exist."
 [ -f $HOME/.bash_profile ] && { mv $HOME/.bash_profile $HOME/.local/share/.old-stow-files; } || echo "bash_profile does not exist."
-[ -f $HOME/..bashrc ] && { mv $HOME/.bashrc $HOME/.local/share/.old-stow-files; } || echo "bashrc does not exist."
+[ -f $HOME/.bashrc ] && { mv $HOME/.bashrc $HOME/.local/share/.old-stow-files; } || echo "bashrc does not exist."
 
 #mv ~/.bash_profile ~/.local/share/.old-stow-files/
 #mv ~/.bashrc ~/.local/share/.old-stow-files/
