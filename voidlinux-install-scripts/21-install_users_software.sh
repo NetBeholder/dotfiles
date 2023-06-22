@@ -49,3 +49,5 @@ stow -t ~/ git --dotfiles #--adopt
 
 stow -t ~/ * --dotfiles --adopt
 $presco xbps-install -Suy stow nano vim alacritty #stow and software
+
+source $HOME/.bashrc
