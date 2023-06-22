@@ -48,6 +48,6 @@ pwd
 
 
 stow -t ~/ * --dotfiles --adopt
-$presco xbps-install -Suy stow nano neovim alacritty #stow and software
+$presco xbps-install -Suy stow nano neovim alacritty curl #stow and software
 
 source $HOME/.bashrc
