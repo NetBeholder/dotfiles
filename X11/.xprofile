@@ -3,4 +3,5 @@ export PATH="$HOME/.local/bin:$PATH"
 feh --bg-scale --randomize ~/.local/share/backgrounds/* &
 pipewire &
 wireplumber &
+sleep 1
 pipewire-pulse &
