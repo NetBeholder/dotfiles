@@ -1,1 +1,1 @@
-# dotfiles from Debian 11
+# My personal dotfiles
