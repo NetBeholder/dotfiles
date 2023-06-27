@@ -1,6 +1,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias vim="nvim"
 alias ls='ls -lah --color=auto'
 alias grep='grep --color=auto'
 alias src='cd ~/.local/src'
