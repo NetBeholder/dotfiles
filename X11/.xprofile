@@ -1,8 +1,8 @@
 export PATH="$HOME/.local/bin:$PATH"
 ~/.screenlayout/laptop.sh &
 feh --bg-scale --randomize ~/.local/share/backgrounds/* &
+#dbus-run-session pipewire &
 pipewire &
-pipewire-pulse &
 #dbus-launch wireplumber &
 wireplumber &
 #sleep 1
