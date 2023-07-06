@@ -56,4 +56,5 @@ fi
 [ -f ~/.xprofile ] && . ~/.xprofile
 #exec xterm -geometry 80x66+0+0 -name login
 #feh --bg-scale --randomize ~/.local/share/backgrounds/* &
-exec dbus-run-session dwm
+#exec dbus-run-session dwm
+exec dbus-run-session ~/.local/src/suckless/dwm-fp-current/dwm

@@ -1,9 +1,16 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
 export bindir="$HOME/.local/bin"
 export srcdir="$HOME/.local/src"
+
+Model=`cat /sys/class/dmi/id/product_name`
+Make=`cat /sys/class/dmi/id/product_family`
+export MakeAndModel=`echo $Make $Model`
+#like neofetch output
+export ModelAndMake=`echo $Model $Make`
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
