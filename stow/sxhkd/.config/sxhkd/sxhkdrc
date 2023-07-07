@@ -1,10 +1,20 @@
+Print
+    maim -d 0.2 ~/Pictures/Screenshots/scr-full-$(date +%F-%T).png
+
 #get active window
 ctrl + Print
-    maim -i $(xdotool getactivewindow) ~/Pictures/Screenshots/win-$(date +%F-%T).png
+    maim -o -i $(xdotool getactivewindow) ~/Pictures/Screenshots/scr-app-$(date +%F-%T).png
 shift + Print
-    maim -s -D -o ~/Pictures/Screenshots/$(date +%F-%T).png
+    maim -s -D -o -c 255,0,0 -b 3.0 -d 0.2 -q ~/Pictures/Screenshots/scr-reg-$(date +%F-%T).png
 #to clipboard
 shift + alt + Print
-     maim -s | xclip -selection clipboard -t image/png
-
-
+#    maim -s -D -o | xclip -selection clipboard -t image/png
+    maim -s -D -o -c 255,0,0 -b 3.0 -d 0.2 | xclip -selection clipboard -t image/png
+#Volume Up
+XF86AudioRaiseVolume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1
+#Volume Down
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 0
+XF86AudioMute
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
