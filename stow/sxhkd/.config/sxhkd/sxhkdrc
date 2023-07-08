@@ -1,3 +1,5 @@
+F12
+    dmenu_run -l 15 -p "Input:" -bw 5
 Print
     maim -d 0.2 ~/Pictures/Screenshots/scr-full-$(date +%F-%T).png
 
