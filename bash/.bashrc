@@ -1,9 +1,10 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
 export bindir="$HOME/.local/bin"
 export srcdir="$HOME/.local/src"
+export TERMINAL="alacritty"
 
 Model=`cat /sys/class/dmi/id/product_name`
 Make=`cat /sys/class/dmi/id/product_family`
@@ -123,6 +124,5 @@ fi
 
 #set colororized bash prompt
 PS1="\[\033[35m\]\t\[\033[m\] \[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-
 
 

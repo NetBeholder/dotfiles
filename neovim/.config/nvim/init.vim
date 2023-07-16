@@ -6,7 +6,9 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
-
+if has('gui_running')
+  set guifont=Terminus:h16
+endif
 
 
 
