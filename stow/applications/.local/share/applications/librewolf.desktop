@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=LibreWolf browser (Flatpack)
+Exec=dbus-run-session flatpak run io.gitlab.librewolf-community

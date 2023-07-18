@@ -12,7 +12,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_BIN_HOME="$HOME/.local/bin"
-
+export XDG_DATA_DIRS="/usr/share:/usr/local/share:/var/lib/flatpak/exports/share:$XDG_DATA_HOME/applications:$XDG_DATA_HOME/flatpak/exports/share:$XDG_DATA_DIRS" 
+#
 #SHELL-specific
 export ZDOTDIR="$XDG_CONFIG_HOME/shell"
 export HISTFILE="$XDG_STATE_HOME/zsh/.zsh_history"

@@ -6,19 +6,9 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
-if has('gui_running')
-  set guifont=Terminus:h16
-endif
-
-
-
-
-
-
-
-
-
-
+"if has('gui_running')
+"  set guifont=Terminus:h16
+"endif
 
 call plug#begin()
 
@@ -33,7 +23,7 @@ Plug 'morhetz/gruvbox'
 Plug 'lilydjwg/colorizer'
 call plug#end()
 
-"Some tandard basic settings:
+"Some standard basic settings:
 set nocompatible
 " Enable OS clipboard integration
 set clipboard+=unnamedplus
@@ -44,10 +34,13 @@ set encoding=utf-8
 set number relativenumber
 "set mouse=a
 
-
-
+" Disables automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Save file as sudo on files that require root permission
-	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+	cabbrev w!! execute 'silent! write !doas tee % >/dev/null' <bar> edit!
+" Save file as sudo on files that require root permission
+"   cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 
 "colorscheme catppuccin
 colorscheme gruvbox 

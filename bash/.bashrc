@@ -2,6 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
+# Global-specific
+#export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_BIN_HOME="$HOME/.local/bin"
+export XDG_DATA_DIRS="/usr/share:/usr/local/share:/var/lib/flatpak/exports/share:$XDG_DATA_HOME/applications:$XDG_DATA_HOME/flatpak/exports/share:$XDG_DATA_DIRS" 
 export bindir="$HOME/.local/bin"
 export srcdir="$HOME/.local/src"
 export TERMINAL="alacritty"
