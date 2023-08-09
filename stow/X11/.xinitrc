@@ -52,12 +52,12 @@ fi
 feh --bg-scale --randomize ~/.local/share/backgrounds/* &
 #pipewire &
 dbus-run-session pipewire &
-#pipewire-pulse &
 dbus-run-session wireplumber &
+pipewire-pulse &
 #wireplumber &
 
 sxhkd &
 
-exec dbus-run-session dwm
+#exec dbus-run-session dwm
 #exec dbus-run-session ~/.local/src/suckless/dwm-statusbar/dwm
-#exec dbus-run-session ~/.local/src/suckless/dwm-fp-current/dwm
+exec dbus-run-session ~/.local/src/suckless/dwm-6.4/dwm

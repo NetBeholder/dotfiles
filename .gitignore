@@ -1,1 +1,3 @@
 stow/neovim/.config/nvim/autoload/
+stow/applications/.local/share/applications/wine-*
+stow/applications/.local/share/applications/mimeinfo.cache

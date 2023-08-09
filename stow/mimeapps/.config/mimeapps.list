@@ -1,0 +1,25 @@
+[Default Applications]
+text/x-shellscript=text.desktop;
+text/plain=text.desktop;
+x-scheme-handler/http=userapp-Firefox-E4HJ81.desktop
+x-scheme-handler/https=userapp-Firefox-E4HJ81.desktop
+x-scheme-handler/chrome=userapp-Firefox-E4HJ81.desktop
+text/html=userapp-Firefox-E4HJ81.desktop
+application/x-extension-htm=userapp-Firefox-E4HJ81.desktop
+application/x-extension-html=userapp-Firefox-E4HJ81.desktop
+application/x-extension-shtml=userapp-Firefox-E4HJ81.desktop
+application/xhtml+xml=userapp-Firefox-E4HJ81.desktop
+application/x-extension-xhtml=userapp-Firefox-E4HJ81.desktop
+application/x-extension-xht=userapp-Firefox-E4HJ81.desktop
+
+[Added Associations]
+x-scheme-handler/http=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+x-scheme-handler/https=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+x-scheme-handler/chrome=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+text/html=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/x-extension-htm=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/x-extension-html=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/x-extension-shtml=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/xhtml+xml=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/x-extension-xhtml=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
+application/x-extension-xht=userapp-Firefox-OKV661.desktop;userapp-Firefox-E4HJ81.desktop;
