@@ -21,7 +21,10 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'lilydjwg/colorizer'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+source ~/.config/nvim/plug-config/coc.vim
+
 
 "Some standard basic settings:
 set nocompatible
