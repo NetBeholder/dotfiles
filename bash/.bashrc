@@ -10,6 +10,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 # GPG
 export GPG_TTY=$(tty)
 
+
 # Global-specific
 #export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export XDG_CONFIG_HOME="$HOME/.config"
