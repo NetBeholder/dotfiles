@@ -4,6 +4,7 @@
 export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
 #DOTNET (for git-credential-manager)
 export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=true 
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 # Global-specific
 #export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
