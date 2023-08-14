@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
+#DOTNET (for git-credential-manager)
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 # Global-specific
 #export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export XDG_CONFIG_HOME="$HOME/.config"

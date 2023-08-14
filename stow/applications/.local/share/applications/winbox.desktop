@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=MikroTik winbox64
+Exec=env WINEARCH=win64 WINEPREFIX="/home/sergey/.wine" wine ~/.local/bin/winbox64.exe
+#Exec=wine64 ~/.local/bin/winbox64.exe
