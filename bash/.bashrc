@@ -7,9 +7,6 @@ export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/script
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=true 
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-# GPG
-export GPG_TTY=$(tty)
-
 
 # Global-specific
 #export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
@@ -22,6 +19,9 @@ export XDG_DATA_DIRS="/usr/share:/usr/local/share:/var/lib/flatpak/exports/share
 export bindir="$HOME/.local/bin"
 export srcdir="$HOME/.local/src"
 export TERMINAL="alacritty"
+
+# GPG
+export GPG_TTY=$(tty)
 
 Model=`cat /sys/class/dmi/id/product_name`
 Make=`cat /sys/class/dmi/id/product_family`
