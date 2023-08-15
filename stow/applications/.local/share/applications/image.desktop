@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Neo simple image viewer
+Exec=/usr/bin/nsxiv -a %f
