@@ -43,7 +43,9 @@ set number relativenumber
 	cabbrev w!! execute 'silent! write !doas tee % >/dev/null' <bar> edit!
 " Save file as sudo on files that require root permission
 "   cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
+" 
+" Fix auto-indentation for YAML files
+"f iletype plugin indent on
 
 "colorscheme catppuccin
 colorscheme gruvbox 

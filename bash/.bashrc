@@ -19,10 +19,25 @@ export XDG_DATA_DIRS="/usr/share:/usr/local/share:/var/lib/flatpak/exports/share
 export bindir="$HOME/.local/bin"
 export srcdir="$HOME/.local/src"
 export TERMINAL="alacritty"
-
+export EDITOR=vim
 # GPG
 export GPG_TTY=$(tty)
+#pipx
+eval "$(register-python-argcomplete pipx)"
+#ansible
+export ANSIBLE_CONFIG=$XDG_CONFIG_HOME/ansible.cfg
 
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    eval `ssh-agent -s` > /dev/null 2>&1
+    ssh-add > /dev/null 2>&1
+    ssh-add ~/.ssh/*_ed25519 > /dev/null 2>&1
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add > /dev/null 2>&1
+    ssh-add ~/.ssh/*_ed25519 > /dev/null 2>&1
+fi
 Model=`cat /sys/class/dmi/id/product_name`
 Make=`cat /sys/class/dmi/id/product_family`
 export MakeAndModel=`echo $Make $Model`
