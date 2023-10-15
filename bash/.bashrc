@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
-
+export NO_AT_BRIDGE=1
 #DOTNET (for git-credential-manager)
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=true 

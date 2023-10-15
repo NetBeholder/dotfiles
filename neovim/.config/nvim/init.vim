@@ -25,6 +25,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 source ~/.config/nvim/plug-config/coc.vim
 
+" for coc-vim
+set nobackup
+set nowritebackup
+"
 
 "Some standard basic settings:
 set nocompatible
@@ -78,7 +82,7 @@ set tabstop=4                   " One tab == four spaces.
 
 "Other stuff
 
-map <C-s> :source ~/.config/nvim/init.vim<CR>
+"map <C-s> :source ~/.config/nvim/init.vim<CR>
 
 :set number
 

@@ -60,4 +60,5 @@ sxhkd &
 
 #exec dbus-run-session dwm
 #exec dbus-run-session ~/.local/src/suckless/dwm-statusbar/dwm
-exec dbus-run-session ~/.local/src/suckless/dwm-6.4/dwm
+#exec dbus-run-session ~/.local/src/suckless/dwm-6.4/dwm
+exec dbus-launch --sh-syntax --exit-with-session ~/.local/src/suckless/dwm-6.4/dwm
