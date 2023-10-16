@@ -1,12 +1,43 @@
 # Basic vars
 set shellopts '-eu'
 set ifs "\n"
+# leave some space at the top and the bottom of the screen
 set scrolloff 10
 set icons
 set period 1
+set hidden!
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 #set cleaner '~/.config/lf/cleaner'
 #set previewer '~/.config/lf/scope'
-#set autoquit true
+set autoquit true
 set drawbox true
 set ignorecase true
+
+# set size of panes
+set ratios 2:3:4
+
+set truncatechar "…"
+
+set timefmt "02.01.2006 15:04:05 "
+set dircounts
+source ~/.config/lf/lffunctions
+map <c-n> push :mkdir<space>
+map <c-t> push $touch<space>
+map <c-r> reload
+map <c-s> set hidden!
+
+# use enter for shell commands
+map <enter> shell
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+map o &mimeopen "$f"
+map O $mimeopen --ask "$f"
+map E extract
+map dd trash
+map D delete
+map C copyto
+map M moveto
+# Movement
+
