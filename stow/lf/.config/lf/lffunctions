@@ -18,7 +18,23 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
-cmd trash %trash-put $fx
+#cmd trash %trash-put $fx
+cmd trash ${{
+    set -f
+    if gio trash 2>/dev/null; then
+        gio trash $fx
+    else
+        mkdir -p ~/.trash
+        mv -- $fx ~/.trash
+    fi
+}}
+
+cmd trash-restore %{{
+  set -f
+  ft=$(basename -a $fx|sed -e 's/^/trash:\/\/\//')
+  gio trash --restore $ft
+  echo 'restored' $(basename -a $fx)
+}}
 
 cmd moveto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold

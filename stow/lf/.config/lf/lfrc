@@ -12,7 +12,6 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set autoquit true
 set drawbox true
 set ignorecase true
-
 # set size of panes
 set ratios 2:3:4
 
@@ -25,7 +24,8 @@ map <c-n> push :mkdir<space>
 map <c-t> push $touch<space>
 map <c-r> reload
 map <c-s> set hidden!
-
+# put lf into backgound, fg for return
+map <c-z> $ kill -STOP $PPID
 # use enter for shell commands
 map <enter> shell
 
@@ -37,6 +37,7 @@ map O $mimeopen --ask "$f"
 map E extract
 map dd trash
 map D delete
+map <a-r> trash-restore
 map C copyto
 map M moveto
 # Movement
