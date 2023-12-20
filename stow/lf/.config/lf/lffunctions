@@ -18,6 +18,10 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
+cmd follow_link %{{
+	lf -remote "send ${id} select \"$(readlink $f)\""
+}}
+
 #cmd trash %trash-put $fx
 cmd trash ${{
     set -f

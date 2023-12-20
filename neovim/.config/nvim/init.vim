@@ -68,11 +68,14 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
+" rotate windows
+map <C-R> <C-W>R
+map <C-r> <C-W>r
 nnoremap <M-Up> :resize -2<CR>
 nnoremap <M-Down> :resize +2<CR>
-map <M-Left> :vertical resize 2<CR>
-nnoremap <M-Right> :vertical resize +2<CR>
+map <M-Left> :vertical resize +2<CR>
+map <M-Right> :vertical resize -2<CR>
+"nnoremap <M-Right> :vertical resize +2<CR>
 " Text formatting
 set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)

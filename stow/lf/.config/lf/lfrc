@@ -41,4 +41,4 @@ map <a-r> trash-restore
 map C copyto
 map M moveto
 # Movement
-
+#map gl follow_link
