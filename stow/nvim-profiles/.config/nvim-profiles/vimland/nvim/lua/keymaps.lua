@@ -12,33 +12,42 @@ local opt = {
 }
 local map = vim.api.nvim_set_keymap
 
+map("n", "<UP>", "", opt)
+map("n", "<Down>", "", opt)
+map("n", "<Left>", "", opt)
+map("n", "<Right>", "", opt)
 
+
+--wrap
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 --local k = require("core.utils").keymap
 
---moving beetwen panes by vim-style keys <ctrl>+hjkl
 
+-----
+-- windows management
+
+map("n", "s", "", opt)
+map("n", "sv", ":vsp<CR>", opt) 	-- vertical split
+map("n", "sh", ":sp<CR>", opt) 		-- horizontal split
+map("n", "sc", "<C-w>c", opt)		-- close last window
+map("n", "so", "<C-w>o", opt) 		-- close others
+
+--moving beetwen panes by vim-style keys <ctrl>+hjkl
 map("n", "<C-j>", "<C-W>j", opt)
 map("n", "<C-k>", "<C-W>k", opt)
 map("n", "<C-h>", "<C-W>h", opt)
 map("n", "<C-l>", "<C-W>l", opt)
 
-
-
-
---nnoremap <M-Up> :resize -2<CR>
---nnoremap <M-Down> :resize +2<CR>
-
---map <M-Left> :vertical resize -2<CR>
---nnoremap <M-Right> :vertical resize +2<CR>
-
+-- resize window size: <Alt> + hjkl
 map("n", "<A-h>", ":vertical resize -2<CR>", opt)
 map("n", "<A-l>", ":vertical resize +2<CR>", opt)
---map("n", "<A-k>", "<C-w>k", opt)
---map("n", "<A-l>", "<C-w>l", opt)
+map("n", "<A-k>", ":resize -2<CR>", opt)
+map("n", "<A-j>", ":resize +2<CR>", opt)
 
---map <M-Left> :vertical resize 2<CR>
---nnoremap <M-Right> :vertical resize +2<CR>
+map("n", "s=", "<C-w>=", opt)		-- set a separator in the middle of the screen
 
+---
 
 --map <C-r> :source ~/.config/nvim/init.vim<CR>
 --local lua_init = vim.fn.stdpath("config") .. "\\init.lua"

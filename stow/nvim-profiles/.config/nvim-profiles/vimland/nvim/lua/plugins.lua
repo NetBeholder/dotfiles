@@ -46,6 +46,7 @@ return packer.startup(function(use)
 --	use ('morhetz/gruvbox')
 	
 	use ("sainnhe/gruvbox-material")
+	use ("sainnhe/sonokai")
 	use ("lilydjwg/colorizer")
 	
 	if PACKER_BOOTSTRAP then
