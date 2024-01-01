@@ -32,7 +32,7 @@ end
 	-- end
 -- end
 
---local Plug = vim.fn['plug#']
+--local Plug = vim.fn['plug-']
 
 --vim.call('plug#begin')
 --	Plug 'morhetz/gruvbox'
@@ -40,10 +40,15 @@ end
 
 
 --vim.cmd.source(vimrc)
-require("plugins")
-require("options")
+require("core.plugins")
+require("core.options")
 require("core.utils")
-require("keymaps")
-require("autocommands")
+require("core.keymaps")
+require("core.autocommands")
+require("core.appearence")
 
-require("lsp")
+require("core.lsp")
+require("plugins.lualine")
+require("plugins.telescope")
+require("plugins.mini.files")
+--require("plugins.telescope-file-browser")

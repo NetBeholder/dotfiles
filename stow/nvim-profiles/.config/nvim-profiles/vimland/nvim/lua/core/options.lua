@@ -1,6 +1,19 @@
 local options = {
-	encoding = "utf8",
-	cursorline = true,
+
+    encoding = "utf8",
+    cursorline = true,
+--    backspace = 2,
+    showcmd = true,
+    number = true,
+    laststatus = 2,
+    autoread = true,
+    autowrite = true,
+    tabstop = 2,
+    shiftwidth = 2,
+    shiftround = true,
+    expandtab = true,
+    relativenumber = true
+    
 }
 
 for k,v in pairs(options) do
@@ -23,8 +36,10 @@ vim.cmd([[
 	set nocompatible
 	set termguicolors
 	syntax on
-	set number relativenumber
-	colorscheme sonokai
 ]])
---	colorscheme gruvbox-material
+
 vim.g.rehash256 = 1
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

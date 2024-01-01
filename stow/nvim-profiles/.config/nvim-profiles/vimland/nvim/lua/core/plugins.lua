@@ -43,12 +43,26 @@ return packer.startup(function(use)
 	use ("wbthomason/packer.nvim") -- Have packer manage itself	
 	--- --- --- ---
 	use ("tpope/vim-surround")
---	use ('morhetz/gruvbox')
+-- use ('morhetz/gruvbox')
 	
-	use ("sainnhe/gruvbox-material")
-	use ("sainnhe/sonokai")
+--	use ("sainnhe/gruvbox-material")
+--	use ("sainnhe/sonokai")
 	use ("lilydjwg/colorizer")
-	
+
+	use ('ellisonleao/gruvbox.nvim')
+--  use ('vim-airline/vim-airline')
+--	use ('vim-airline/vim-airline-themes')
+	use ('nvim-tree/nvim-web-devicons')
+	use ('nvim-lualine/lualine.nvim')
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
