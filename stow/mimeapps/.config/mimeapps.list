@@ -1,6 +1,11 @@
 [Default Applications]
 text/x-shellscript=text.desktop;
 text/plain=text.desktop;
+image/jpeg=image.desktop;
+image/png=image.desktop;
+image/gif=image.desktop;
+application/pdf=pdf.desktop;
+application/postscript=pdf.desktop;
 x-scheme-handler/http=userapp-Firefox-E4HJ81.desktop
 x-scheme-handler/https=userapp-Firefox-E4HJ81.desktop
 x-scheme-handler/chrome=userapp-Firefox-E4HJ81.desktop

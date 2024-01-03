@@ -1,0 +1,23 @@
+# basics
+di              
+fi              󰈙
+ex              
+ln              
+#shell
+
+*.bashrc        
+*.bash_profile  
+*.bash_aliases  
+*.sh            
+
+*.jpg           
+*.jpeg          
+
+*.pdf           
+*.txt           📃
+*.conf          
+*.md            
+*.gpg           
+
+*.json          
+*.toml          

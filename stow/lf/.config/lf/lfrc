@@ -38,7 +38,11 @@ map E extract
 map dd trash
 map D delete
 map <a-r> trash-restore
-map C copyto
+map Y copyto
 map M moveto
+map o &mimeopen "$f"
+map O $mimeopen --ask "$f"
+map T &lfmount $f
+map . set hidden!
 # Movement
 #map gl follow_link

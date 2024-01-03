@@ -4,4 +4,4 @@ Name=PDF reader
 Exec=/usr/bin/zathura %f
 Terminal=false
 Categories=Office;Viewer;
-MimeType=application/pdf;
+MimeType=application/pdf;application/x-fictionbook+xml;
