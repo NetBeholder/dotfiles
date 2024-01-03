@@ -20,10 +20,13 @@ set truncatechar "…"
 set timefmt "02.01.2006 15:04:05 "
 set dircounts
 source ~/.config/lf/lffunctions
-map <c-n> push :mkdir<space>
+
+map a push :mkdir<space>
+#map <c-n> push :mkdir<space>
+#map <c-t> push $touch<space>
 map <c-t> push $touch<space>
 map <c-r> reload
-map <c-s> set hidden!
+#map <c-s> set hidden!
 # put lf into backgound, fg for return
 map <c-z> $ kill -STOP $PPID
 # use enter for shell commands
@@ -35,14 +38,18 @@ map X !$f
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
 map E extract
-map dd trash
-map D delete
-map <a-r> trash-restore
+map D trash # instead of delete
+#map d trash
+#map D delete
+#map <a-r> trash-restore
+map r trash-restore
 map Y copyto
 map M moveto
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
 map T &lfmount $f
 map . set hidden!
+map c edit-config
+map C compress
 # Movement
 #map gl follow_link

@@ -33,6 +33,7 @@ cmd extract ${{
 	[ $ans = "y" ] && aunpack $fx
 }}
 
+
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -46,15 +47,29 @@ cmd follow_link %{{
 	lf -remote "send ${id} select \"$(readlink $f)\""
 }}
 
-#cmd trash %trash-put $fx
 cmd trash ${{
-    set -f
-    if gio trash 2>/dev/null; then
-        gio trash $fx
-    else
-        mkdir -p ~/.trash
-        mv -- $fx ~/.trash
-    fi
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "Delete (to trash)?[y/N]"
+	read ans
+	[ $ans = "y" ] && { trash-put $fx; notify-send " File(s) moved to Trash."; }
+}}
+# 🚚 󰦫 
+
+#cmd trash ${{
+#    set -f
+#    if gio trash 2>/dev/null; then
+#        gio trash $fx
+#    else
+#        mkdir -p ~/.trash
+#        mv -- $fx ~/.trash
+#    fi
+#}}
+
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
 cmd trash-restore %{{
@@ -72,9 +87,9 @@ cmd moveto ${{
 	for x in $fx; do
 		eval mv -iv \"$x\" \"$dest\"
 	done #&&
-#	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+#	notify-send " File(s) moved." "File(s) moved to $dest."
 }}
-
+# 🚚
 cmd copyto ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -84,4 +99,26 @@ cmd copyto ${{
 		eval cp -ivr \"$x\" \"$dest\"
 	done #&&
 	#notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+
+cmd compress ${{
+    set -f
+    archivetype="$(cat ${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfarchtypes | fzf)"
+    #echo "Archtype:" $archivetype
+    archivename="$f.${archivetype}"
+    #echo "ArchName:" $archivename
+
+    archivedirname="$f.${archivetype}.temp"
+    #echo "ArchDirName:" $archivedirname
+    
+    relativearchivename="$(echo ${archivename} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
+    #echo $relativearchivename
+
+    relativearchivedirname="$(echo ${archivedirname} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
+    #echo $relativearchivedirname
+    mkdir $archivedirname #"$f.${archivetype}.temp"
+    cp -r $fx $archivedirname #"$f.${archivetype}.temp"
+    apack -F${archivetype} ${relativearchivename} ${relativearchivedirname}
+    #atool -a -F${archivetype} ${relativearchivename} ${archivedirname}
+    rm -rf -- ${archivedirname}
 }}
