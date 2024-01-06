@@ -14,12 +14,19 @@ set drawbox true
 set ignorecase true
 # set size of panes
 set ratios 2:3:4
-
+set incsearch
+#ignores diacritics such as accents while searching. Therefore, /épo will match the file dépotoire
+set ignoredia
 set truncatechar "…"
 
 set timefmt "02.01.2006 15:04:05 "
 set dircounts
+set previewer '~/.config/lf/previewer'
+set cleaner '~/.config/lf/cleaner'
 source ~/.config/lf/lffunctions
+#source ~/.config/lf/opener
+
+%test $LF_LEVEL -eq 1 || >&2 printf "Warning: You're in a nested lf instance!"
 
 map a push :mkdir<space>
 #map <c-n> push :mkdir<space>
@@ -38,18 +45,28 @@ map X !$f
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
 map E extract
-map D trash # instead of delete
+map <a-d> trash # instead of delete
 #map d trash
-#map D delete
+map D delete
 #map <a-r> trash-restore
 map r trash-restore
 map Y copyto
 map M moveto
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
+# mount for archive
 map T &lfmount $f
 map . set hidden!
 map c edit-config
 map C compress
+map L test
+# "soft" rename without forced overwrite
+map i rename %sh -c 'mv -i $f $0'
 # Movement
 #map gl follow_link
+map f ${{
+    selected="$(fzf)"
+    [ -d "$selected" ] && cmd=cd || cmd=select
+    lf -remote "send $id $cmd '$selected'"
+}}
+

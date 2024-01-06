@@ -1,14 +1,38 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_BIN_HOME="$HOME/.local/bin" 
+
+
+export LC_TIME="ru_RU.UTF8"
+#export LC_LANG="ru_RU.UTF-8"'
+#export LC_CTYPE="ru_RU.UTF-8"'
+export LC_NUMERIC="ru_RU.UTF-8"
+export LC_TIME=ru_RU.UTF8
+export LC_COLLATE="ru_RU.UTF-8"
+export LC_MONETARY="ru_RU.UTF-8"
+#export LC_MESSAGES="ru_RU.UTF-8"'
+export LC_PAPER="ru_RU.UTF-8"
+export LC_NAME="ru_RU.UTF-8"
+export LC_ADDRESS="ru_RU.UTF-8"
+export LC_TELEPHONE="ru_RU.UTF-8"
+export LC_MEASUREMENT="ru_RU.UTF-8"
+export LC_IDENTIFICATION="ru_RU.UTF-8"
+#export LC_ALL='
+
 # don't put duplicate lines or lines starting with space in the history.
+
+
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 

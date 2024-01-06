@@ -122,3 +122,15 @@ cmd compress ${{
     #atool -a -F${archivetype} ${relativearchivename} ${archivedirname}
     rm -rf -- ${archivedirname}
 }}
+
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+}}
+
+cmd test ${{
+    set -f
+    clear
+    echo "f:" $f
+    echo "fx:" $fx
+    echo "fs:" $fs
+}}
