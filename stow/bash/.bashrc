@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/bin/statusbar:$HOME/.local/bin/scripts:$PATH"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -30,6 +30,14 @@ export LC_MEASUREMENT="ru_RU.UTF-8"
 export LC_IDENTIFICATION="ru_RU.UTF-8"
 #export LC_ALL='
 
+
+
+export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export GPG_TTY=$(tty)
+
+export EDITOR=nvim
 # don't put duplicate lines or lines starting with space in the history.
 
 
