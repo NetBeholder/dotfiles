@@ -38,6 +38,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export GPG_TTY=$(tty)
 
 export EDITOR=nvim
+export TERMINAL=alacritty
 # don't put duplicate lines or lines starting with space in the history.
 
 
