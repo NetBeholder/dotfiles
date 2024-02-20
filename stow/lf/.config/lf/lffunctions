@@ -134,3 +134,9 @@ cmd test ${{
     echo "fx:" $fx
     echo "fs:" $fs
 }}
+
+cmd drag-and-drop ${{
+    #set -f
+    #set ifs "\n"
+    printf %"s\n" $fx | ripdrag -I -n
+}}

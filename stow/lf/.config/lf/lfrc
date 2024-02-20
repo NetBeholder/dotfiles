@@ -70,3 +70,4 @@ map f ${{
     lf -remote "send $id $cmd '$selected'"
 }}
 
+map w drag-and-drop
