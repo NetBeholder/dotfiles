@@ -1,3 +1,4 @@
+#PlUGIN MANAGER
 ANTIDOTEDIR="$XDG_DATA_HOME/zsh/.antidote"
 
 if [[ ! -d ${ANTIDOTEDIR} ]]; then
@@ -5,8 +6,8 @@ if [[ ! -d ${ANTIDOTEDIR} ]]; then
     mkdir -p ${ANTIDOTEDIR}
     echo "Download mattmc3/antidote"
     git clone --depth=1 https://github.com/mattmc3/antidote.git ${ANTIDOTEDIR}
-else
-    echo "No downloading"
+else #nothing
+#    echo "No downloading"
 fi
 
 #setopt appendhistory
@@ -78,4 +79,4 @@ bindkey "^[[3~" delete-char
 #[[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}"  history-beginning-search-forward && bindkey -M vicmd "${key[Down]}"  history-beginning-search-forward
 #
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"

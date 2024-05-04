@@ -1,0 +1,16 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias vim="nvim"
+alias ls='ls -lahF --color=auto'
+alias grep='grep --color=auto'
+alias src='cd ~/.local/src'
+alias dwm-restart='pkill -HUP dwm'
+alias wget='wget --hsts-file $XDG_STATE_HOME/wget/wget-hsts'
+alias tlp-stat='doas tlp-stat'
+alias zzz='doas zzz'
+alias librewolf='dbus-run-session flatpak run io.gitlab.librewolf-community'
+xs ()
+{
+    xpkg -a | fzf -m --preview 'xq {1}' --preview-window=right:66%:wrap | xargs -ro xi
+}

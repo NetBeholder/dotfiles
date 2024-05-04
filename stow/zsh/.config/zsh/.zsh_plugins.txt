@@ -1,0 +1,18 @@
+mattmc3/zephyr path:plugins/completion
+mattmc3/zephyr path:plugins/color
+#mattmc3/zephyr path:plugins/history
+#mattmc3/zephyr path:plugins/utility
+#mattmc3/zephyr path:plugins/editor
+#mattmc3/zephyr path:plugins/prompt
+
+belak/zsh-utils path:history
+belak/zsh-utils path:utility
+belak/zsh-utils path:editor
+belak/zsh-utils path:prompt
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-completions
+
+sindresorhus/pure

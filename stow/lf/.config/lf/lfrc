@@ -57,7 +57,7 @@ map O $mimeopen --ask "$f"
 # mount for archive
 map T &lfmount $f
 map . set hidden!
-map c edit-config
+#map c edit-config
 map C compress
 map L test
 # "soft" rename without forced overwrite
@@ -70,4 +70,4 @@ map f ${{
     lf -remote "send $id $cmd '$selected'"
 }}
 
-map w drag-and-drop
+map w drag-n-drop

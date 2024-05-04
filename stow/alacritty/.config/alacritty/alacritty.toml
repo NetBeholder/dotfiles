@@ -1,0 +1,10 @@
+import = ["/home/sergey/.config/alacritty/themes/gruvbox_dark.toml"]
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[selection]
+save_to_clipboard = true

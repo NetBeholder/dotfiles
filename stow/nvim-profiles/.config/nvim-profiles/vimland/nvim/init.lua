@@ -46,7 +46,6 @@ require("core.utils")
 require("core.keymaps")
 require("core.autocommands")
 require("core.appearence")
-
 require("core.lsp")
 require("plugins.lualine")
 require("plugins.telescope")

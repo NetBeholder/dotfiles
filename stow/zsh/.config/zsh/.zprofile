@@ -4,16 +4,18 @@
 #$ZDOTDIR/.zshrc
 #$ZDOTDIR/.zlogin
 #$ZDOTDIR/.zlogout
-echo "zprofile here"
+echo "zprofile here-12345"
 #export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
+export PATH="$PATH:${$(find ~/.local/bin -maxdepth 3 -type d -printf %p:)%%:}"
+export PATH="$HOME/.cargo/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_BIN_HOME="$HOME/.local/bin"
-
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
+export ZSH_COMPDUMP=${XDG_CACHE_HOME}/zsh/.zcompdump
+#export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export FOO=bar
 #dotnet
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
@@ -23,9 +25,11 @@ export GPG_TTY=$(tty)
 export EDITOR=nvim
 export TERMINAL=alacritty
 
+# APPS
 export TF_CLI_CONFIG_FILE=$HOME/.config/terraform/terraformrc
 export ANSIBLE_HOST_KEY_CHECKING=False
-
+#export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 # Regional settings
 export LC_TIME="ru_RU.UTF8"
@@ -44,14 +48,26 @@ export LC_MEASUREMENT="ru_RU.UTF-8"
 export LC_IDENTIFICATION="ru_RU.UTF-8"
 #export LC_ALL='
 
-alias ..='cd ..'
-alias ...='cd ../..'
+# Ensure path arrays do not contain duplicates.
+typeset -gU path fpath
 
-alias vim="nvim"
-alias ls='ls -lah --color=auto'
-alias grep='grep --color=auto'
-alias src='cd ~/.local/src'
-alias dwm-restart='pkill -HUP dwm'
-function xs () {
-    xpkg -a | fzf -m --preview 'xq {1}' --preview-window=right:66%:wrap | xargs -ro xi
-}
+
+
+
+
+
+
+
+
+
+#alias ..='cd ..'
+#alias ...='cd ../..'
+#
+#alias vim="nvim"
+#alias ls='ls -lah --color=auto'
+#alias grep='grep --color=auto'
+#alias src='cd ~/.local/src'
+#alias dwm-restart='pkill -HUP dwm'
+#function xs () {
+#    xpkg -a | fzf -m --preview 'xq {1}' --preview-window=right:66%:wrap | xargs -ro xi
+#}

@@ -31,7 +31,7 @@ export LC_IDENTIFICATION="ru_RU.UTF-8"
 #export LC_ALL='
 
 
-
+#dotnet
 export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
@@ -41,7 +41,9 @@ export EDITOR=nvim
 export TERMINAL=alacritty
 # don't put duplicate lines or lines starting with space in the history.
 
+export TF_CLI_CONFIG_FILE=$HOME/.config/terraform/terraformrc
 
+export ANSIBLE_HOST_KEY_CHECKING=False
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
@@ -150,3 +152,13 @@ PS1="\[\033[35m\]\t\[\033[m\] \[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;
 
 complete -f -F _dotnet_bash_complete dotnet
 
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f "${XDG_BIN_HOME}/yandex-cloud/path.bash.inc" ]; then source "${XDG_BIN_HOME}/yandex-cloud/path.bash.inc"; fi
+
+# The next line enables shell command completion for yc.
+if [ -f "${XDG_BIN_HOME}/yandex-cloud/completion.bash.inc" ]; then source "${XDG_BIN_HOME}/yandex-cloud/completion.bash.inc"; fi
+
+
+complete -C /usr/bin/terraform terraform
+source ~/.local/share/blesh/ble.sh

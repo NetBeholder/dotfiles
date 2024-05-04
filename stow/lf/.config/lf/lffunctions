@@ -108,19 +108,20 @@ cmd compress ${{
     archivename="$f.${archivetype}"
     #echo "ArchName:" $archivename
 
-    archivedirname="$f.${archivetype}.temp"
-    #echo "ArchDirName:" $archivedirname
+    archivedirname="$f.${archivetype}"
+    echo "ArchDirName:" $archivedirname
     
     relativearchivename="$(echo ${archivename} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
-    #echo $relativearchivename
+    echo $relativearchivename
 
     relativearchivedirname="$(echo ${archivedirname} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
-    #echo $relativearchivedirname
-    mkdir $archivedirname #"$f.${archivetype}.temp"
-    cp -r $fx $archivedirname #"$f.${archivetype}.temp"
-    apack -F${archivetype} ${relativearchivename} ${relativearchivedirname}
+    echo $relativearchivedirname
+    #mkdir "/tmp/$archivedirname" #"$f.${archivetype}.temp"
+    #cp -r $fx "/tmp/$archivedirname" #"$f.${archivetype}.temp"
+    ##apack -F${archivetype} ${relativearchivename} ${relativearchivedirname}
     #atool -a -F${archivetype} ${relativearchivename} ${archivedirname}
-    rm -rf -- ${archivedirname}
+    ##rm -rf -- ${archivedirname}
+    echo $PWD
 }}
 
 cmd on-select &{{
@@ -135,7 +136,7 @@ cmd test ${{
     echo "fs:" $fs
 }}
 
-cmd drag-and-drop ${{
+cmd drag-n-drop ${{
     #set -f
     #set ifs "\n"
     printf %"s\n" $fx | ripdrag -I -n
