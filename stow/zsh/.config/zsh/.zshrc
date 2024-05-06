@@ -1,6 +1,7 @@
 # Zsh options.
 setopt extended_glob
 
+
 ###
 #PlUGIN MANAGER
 ANTIDOTEDIR="$XDG_DATA_HOME/zsh/.antidote"

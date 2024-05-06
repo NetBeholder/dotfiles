@@ -161,4 +161,4 @@ if [ -f "${XDG_BIN_HOME}/yandex-cloud/completion.bash.inc" ]; then source "${XDG
 
 
 complete -C /usr/bin/terraform terraform
-source ~/.local/share/blesh/ble.sh
+#source ~/.local/share/blesh/ble.sh
