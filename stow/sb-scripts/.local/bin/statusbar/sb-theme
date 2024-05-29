@@ -1,0 +1,57 @@
+#!/bin/bash
+# Utility functions for theming statusbar scripts.
+#enable printf
+sb_print() {
+    #local _color=$1
+    #set default fg and bg colors. override its if $2 and $3 exists.
+    local fgcolor="^c#EBDBB2^"
+    #local fgcolor="^c#FF0000^"
+    local bgcolor="^b#282828^"
+    #if [ -n "$2" ]; then
+    #    color="$2"
+    #else
+        case "$(basename "$0")" in
+            sb-mail) color=13 ;;
+            sb-music) color=14 ;;
+            sb-disk) color=10 ;;
+            sb-memory) color=15 ;;
+            sb-loadavg) color=11 ;;
+            sb-mic) color=9 ;;
+            sb-record) color=9 ;;
+            sb-volume) color=15 ;;
+            sb-battery)
+                color=14
+                if [ ! -z $2 ]; then #second param exists and not empty
+                    case "$2" in
+                        "1") #red
+                            fgcolor="^c#ea6962^"
+                            bgcolor="^b#282828^"
+                        ;;
+                        "3") #yellow
+                            fgcolor="^c#d8a657^"
+                            bgcolor="^b#282828^"
+                        ;;
+                    esac
+                fi
+            ;;
+            sb-date) color="#EBDBB2" ;;
+            sb-network) color=9 ;;
+            *) color=15 ;;
+        esac
+    #fi
+
+    case "$STATUSBAR" in
+        "dwmblocks")
+            echo "$1"
+            ;;
+        *)
+            #_color="^c$color^"
+            #echo $_color
+            #printf '%q' '%s %s %s' $fgcolor $bgcolor $1
+            #printf '%s %s %s' $fgcolor $bgcolor " $1 "
+            #printf '%s %s %-5s' $fgcolor $bgcolor $1
+            echo "$fgcolor$bgcolor $1"
+            #printf '%s' $1
+            ;;
+    esac
+}

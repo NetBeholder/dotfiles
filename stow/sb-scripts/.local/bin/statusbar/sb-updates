@@ -1,0 +1,14 @@
+#!/bin/sh
+# Displays the disk usages of root and home partitions.
+
+case $BLOCK_BUTTON in
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+NeedSystemUpdates=`xbps-install -Sun | wc -l`
+NeedFlatpakUpdates=`echo "$(flatpak update | wc -l)-3" | bc`
+NeedXcheckRestart=`xcheckrestart | wc -l`
+. sb-theme
+sb_print "X:$NeedSystemUpdates F:$NeedFlatpakUpdates R:$NeedXcheckRestart"
+#echo $lang
+#echo "$(display 󰋊) $(fetchDiskUsage /)$(display "|")$(fetchDiskUsage /home)"

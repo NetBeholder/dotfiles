@@ -1,0 +1,32 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) setsid -f "$TERMINAL" -e pulsemixer ;;
+    2) pamixer -t ;;
+    4) pamixer -i 3 ;;
+    5) pamixer -d 3 ;;
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+. sb-theme
+#if [ "$(pamixer --get-mute)" = true ]; then
+if [ "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d " " -f3 | tr -d '[]')" = "MUTED" ]; then
+    sb_print "󰖁 [M]"
+    #sb_print " "
+    exit
+fi
+
+#vol="$(pamixer --get-volume)"
+vol=$(echo "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d " " -f2)*100" | bc | cut -d "." -f1)
+
+[ $? -ne 0 ] && [ -z "$vol" ] && exit 1
+
+if [ "$vol" -ge 60 ]; then
+    icon=""
+elif [ "$vol" -ge 35 ]; then
+    icon=""
+else
+    icon=""
+fi
+
+sb_print "$icon $vol%"
