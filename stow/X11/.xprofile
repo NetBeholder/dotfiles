@@ -1,19 +1,15 @@
-#export PATH="$HOME/.local/bin:$HOME"
-# SET env
-dbus-update-activation-environment --all --verbose
-export XDG_CURRENT_DESKTOP=dwm
-export XDG_SESSION_DESKTOP="$XDG_CURRENT_DESKTOP"
+#/bin/sh
 
-#~/.screenlayout/laptop.sh &
-#
-##desktop portal has no it's own runit service...
-#/usr/libexec/xdg-desktop-portal &
-#
-#feh --bg-scale --randomize ~/.local/share/backgrounds/* &
-##pipewire &
-#dbus-run-session pipewire &
-##pipewire-pulse &
-#dbus-run-session wireplumber &
-##wireplumber &
-#
-#sxhkd &
+feh --bg-scale --randomize ~/.local/share/backgrounds/* &
+~/.screenlayout/laptop.sh &
+
+autostart="sxhkd dwmblocks dunst"
+
+#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
+
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+# Ensure that xrdb has finished running before moving on to start the WM/DE.
+[ -n "$xrdbpid" ] && wait "$xrdbpid"

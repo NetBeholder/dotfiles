@@ -1,5 +1,10 @@
 F12
-    dmenu_run -l 15 -p "Input:" -bw 5
+    #dmenu_run -l 15 -p "Input:" -bw 5
+    #bash /home/sergey/.local/bin/scripts/dmenu-applications.sh
+    $HOME/.local/bin/scripts/dmenu-applications
+    #bash -c "echo $PATH > /home/sergey/sxhkd-path.txt"
+    #bash -c "dmenu-applications"
+
 Print
     maim -d 0.2 ~/Pictures/Screenshots/scr-full-$(date +%F-%T).png
 
@@ -20,3 +25,7 @@ XF86AudioLowerVolume
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 0
 XF86AudioMute
     wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+XF86MonBrightnessUp
+    light -A 10
+XF86MonBrightnessDown
+    light -U 10

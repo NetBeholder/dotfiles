@@ -103,29 +103,38 @@ cmd copyto ${{
 
 cmd compress ${{
     set -f
+    echo $fx
     archivetype="$(cat ${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfarchtypes | fzf)"
+	printf "Enter archive name without extension [$archivetype]: "
+	read ans
+	echo "ANS: $ans"
     #echo "Archtype:" $archivetype
-    archivename="$f.${archivetype}"
+    #archivename="$f.${archivetype}"
     #echo "ArchName:" $archivename
 
-    archivedirname="$f.${archivetype}"
-    echo "ArchDirName:" $archivedirname
+    #archivedirname="$f.${archivetype}"
+    #echo "ArchDirName:" $archivedirname
     
-    relativearchivename="$(echo ${archivename} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
-    echo $relativearchivename
+    #relativearchivename="$(echo ${archivename} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
+    #echo "RelArchName: $relativearchivename"
 
-    relativearchivedirname="$(echo ${archivedirname} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
-    echo $relativearchivedirname
-    #mkdir "/tmp/$archivedirname" #"$f.${archivetype}.temp"
-    #cp -r $fx "/tmp/$archivedirname" #"$f.${archivetype}.temp"
-    ##apack -F${archivetype} ${relativearchivename} ${relativearchivedirname}
+    #relativearchivedirname="$(echo ${archivedirname} | sed -n 's/^\(.*\/\)*\(.*\)/\2/p')"
+    #echo "RelArchDirName: $relativearchivedirname"
+    #TMP=`mktemp -d /tmp/atool.XXXXXXXXXX`
+    TMP=`mktemp -d atool.XXXXXXXXXX`
+    #echo "TMP: $TMP"
+    #mkdir "/tmp/$relativearchivedirname" #"$f.${archivetype}.temp"
+    cp -r $fx $TMP #"/tmp/$relativearchivedirname" #"$f.${archivetype}.temp"
+    #echo $ans.$archivetype
+    #temparchivedir="/tmp/$relativearchivedirname"
+    apack -F${archivetype} $ans.$archivetype $TMP #$temparchivedir #${relativearchivename} ${relativearchivedirname}
     #atool -a -F${archivetype} ${relativearchivename} ${archivedirname}
-    ##rm -rf -- ${archivedirname}
-    echo $PWD
+    rm -rf -- $TMP
+    #echo $PWD
 }}
 
 cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+    lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f")\""
 }}
 
 cmd test ${{
