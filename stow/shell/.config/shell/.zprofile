@@ -4,6 +4,7 @@
 #$ZDOTDIR/.zshrc
 #$ZDOTDIR/.zlogin
 #$ZDOTDIR/.zlogout
+
 echo "zprofile here-12345"
 #export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 export PATH="$PATH:${$(find ~/.local/bin -maxdepth 3 -type d,l -printf %p:)%%:}"
