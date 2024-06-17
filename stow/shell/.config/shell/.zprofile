@@ -5,7 +5,6 @@
 #$ZDOTDIR/.zlogin
 #$ZDOTDIR/.zlogout
 
-echo "zprofile here-12345"
 #export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 export PATH="$PATH:${$(find ~/.local/bin -maxdepth 3 -type d,l -printf %p:)%%:}"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -22,7 +21,13 @@ export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 #cargo
 export PATH="$PATH:$HOME/.cargo"
 #
+# GCM
+export GCM_CREDENTIAL_STORE=gpg
+export GCM_CREDENTIAL_STORE=cache
+export GCM_CREDENTIAL_CACHE_OPTIONS="--timeout 1800"
+
 export GPG_TTY=$(tty)
+
 export EDITOR=nvim
 export TERMINAL=alacritty
 #export SXHKD_SHELL=/bin/bash

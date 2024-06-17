@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Text editor
-Exec=alacritty -e nvim
+Exec=nohup 'alacritty --command nvim' >/dev/null 2>&1 &
 X-Desktop-File-Install-Version=0.26
