@@ -10,3 +10,4 @@
 	useHttpPath = true
 [safe]
 	directory = /machine-specific-configs
+	directory = /etc
