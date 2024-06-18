@@ -1,5 +1,7 @@
 [Desktop Entry]
+Name=Neovim
+GenericName=Text Editor
 Type=Application
-Name=Text editor
-Exec=nohup 'alacritty --command nvim' >/dev/null 2>&1 &
+Comment=Edit text files
+Exec=alacritty -e nvim %u
 X-Desktop-File-Install-Version=0.26
