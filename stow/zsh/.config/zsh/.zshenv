@@ -54,7 +54,7 @@ path+=(
   "$PATH:${$(find /opt -maxdepth 3 -type d,l -printf %p:)%%:}"
   $DOTNET_ROOT
 #  $DOTNET_ROOT/tools
-  "$HOME/.cargo"
+#  "$HOME/.cargo"
 )
 #export $PATH
 #echo $path
@@ -66,7 +66,9 @@ path+=(
 #  done
 #} __zsh_{config,user_data,cache}_dir XDG_{CONFIG,CACHE,DATA,STATE}_HOME XDG_{RUNTIME,PROJECTS}_DIR
 
-. "$HOME/.cargo/env"
+# Load cargo env if available
+if [[ -f "$HOME/.cargo/env" ]]; then source "$HOME/.cargo/env"; fi
+#. "$HOME/.cargo/env"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
