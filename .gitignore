@@ -2,6 +2,7 @@ stow/neovim/.config/nvim/autoload/
 stow/nvim-profiles/.config/nvim-profiles/vimland/nvim/plugin/
 stow/applications/.local/share/applications/wine-*
 stow/applications/.local/share/applications/mimeinfo.cache
+stow/tmux/.config/tmux/plugins/
 stow/nvim
 .zcompdump
 .zsh_plugins.zsh
