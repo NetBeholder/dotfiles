@@ -37,7 +37,9 @@ export EDITOR=nvim
 export TERMINAL=alacritty
 # APPS
 export TF_CLI_CONFIG_FILE=$HOME/.config/terraform/terraformrc
+## ansible
 export ANSIBLE_HOST_KEY_CHECKING=False
+export ANSIBLE_CONFIG=${XDG_CONFIG_HOME}/ansible/ansible.cfg
 #
 #export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
 # Fish-like dirs

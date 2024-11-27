@@ -23,19 +23,43 @@ fi
 ##    echo "No downloading"
 #fi
 
+
+
+
+
+# Set the root name of the plugins files (.txt and .zsh) antidote will use.
+zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
+
+# Ensure the .zsh_plugins.txt file exists so you can add plugins.
+[[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
+
+# Lazy-load antidote from its functions directory.
+fpath=("${ANTIDOTE_HOME}"/functions $fpath)
+autoload -Uz antidote
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+
+# Generate a new static file whenever .zsh_plugins.txt is updated.
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+  antidote bundle <${zsh_plugins}.txt >|${zsh_plugins}.zsh
+fi
+
+# Source your static plugins file.
+source ${zsh_plugins}.zsh
+
 # PlUGIN MANAGER
-source ${ZDOTDIR}/.zsh_aliases
-source ${ANTIDOTE_HOME}/antidote.zsh
-antidote load ${ZDOTDIR}/.zsh_plugins.txt
+#source ${ANTIDOTE_HOME}/antidote.zsh
+#antidote load ${ZDOTDIR}/.zsh_plugins.txt
 # END PLUGIN MANAGER
 #
 #autoload -Uz compinit && compinit
 # PROMPT_CONFIG
 PURE_PROMPT_SYMBOL=λ
 #prompt pure
+autoload -Uz promptinit && promptinit && prompt pure
 # END PROMPT CONFIG
 
-
+# tab with arrows
+zstyle ':completion:*' menu select 
 
 # Variables
 
@@ -65,7 +89,13 @@ bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
+#ctrl-delete
+bindkey -M emacs '^[[3;5~' kill-word
+#ctrl + backspace
+bindkey -M emacs '^H' backward-kill-word
+#bindkey '5~' kill-word
 
 bindkey -e
 source /etc/zsh_command_not_found
-#. "$HOME/.cargo/env"
+
+source ${ZDOTDIR}/.zsh_aliases
