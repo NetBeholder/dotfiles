@@ -1,0 +1,51 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias vim="nvim"
+alias ls='ls -lahF --color=auto'
+alias grep='grep --color=auto'
+alias src='cd ~/.local/src'
+alias dwm-restart='pkill -HUP dwm'
+alias wget='wget --hsts-file $XDG_STATE_HOME/wget/wget-hsts'
+#alias tlp-stat='doas tlp-stat'
+alias zzz='doas zzz'
+alias librewolf='dbus-run-session flatpak run io.gitlab.librewolf-community'
+xs ()
+{
+    xpkg -a | fzf -m --preview 'xq {1}' --preview-window=right:66%:wrap | xargs -ro xi
+}
+
+
+lfub ()
+{
+	UB_PID=0
+	UB_SOCKET=""
+
+	case "$(uname -a)" in
+	    *Darwin*) UEBERZUG_TMP_DIR="$TMPDIR" ;;
+	    *) UEBERZUG_TMP_DIR="/tmp" ;;
+	esac
+	
+	cleanup() {
+	    exec 3>&-
+	    ueberzugpp cmd -s "$UB_SOCKET" -a exit
+	}
+
+
+	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	    lf "$@"
+	else
+	    [ -d "${XDG_CACHE_HOME}/lf" ] || mkdir -p "${XDG_CACHE_HOME}/lf"
+	    UB_PID_FILE="$UEBERZUG_TMP_DIR/.$(uuidgen)"
+	    ueberzugpp layer --silent --no-stdin --use-escape-codes --pid-file "$UB_PID_FILE"
+	    UB_PID=$(cat "$UB_PID_FILE")
+	    rm "$UB_PID_FILE"
+	    UB_SOCKET="$UEBERZUG_TMP_DIR/ueberzugpp-${UB_PID}.socket"
+	    export UB_PID UB_SOCKET
+	    trap cleanup HUP INT QUIT TERM EXIT
+	    a=`lf -print-last-dir "$@" 3>&-`
+	    echo $a
+	    cd $a
+	    #lf -last-dir-path="$tmp" "$@" 3>&-
+	fi
+}
